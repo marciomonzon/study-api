@@ -1,3 +1,5 @@
+using Scalar.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
@@ -8,8 +10,9 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.UseSwaggerUI(options => 
-                     options.SwaggerEndpoint("/openapi/v1.json", "wather api"));
+    //app.UseSwaggerUI(options => 
+    //                 options.SwaggerEndpoint("/openapi/v1.json", "weather api"));
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
